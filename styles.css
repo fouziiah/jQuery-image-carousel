@@ -1,13 +1,14 @@
-.parent {
-   
+#imageContainer{
+    text-align: center;
 }
 
-.parent img {
+#imageContainer img{
     display: inline-block;
     margin: 5px; 
     width: auto;
-    height: 13em;
+    height: 20em;
 }
+
 
 #btn1, #btn2 {
     background-color: #9ac1db; 

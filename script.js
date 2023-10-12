@@ -1,16 +1,25 @@
 $(document).ready(function() {
-    var imgLinks = ['cape.jpg', 'greece.avif', 'japan.jpeg', 'nairobi.avif', 'somalia.jpg'];
+    var imgLinks = ['images/cape.jpg', 'images/greece.avif', 'images/japan.jpeg', 'images/nairobi.avif', 'images/somalia.jpg'];
 
-    $('#btn1').on('click', function() {
-        imgLinks.forEach(function() {
-            $(this).fadeIn(1000);
+
+    var currentIndex = 0;
+    $('#btn1').click(function(){
+        currentIndex = (currentIndex + 1) % imgLinks.length;
+        console.log(currentIndex);
+        const nextImage = imgLinks[currentIndex];
+        console.log('this is the next image', nextImage);
+    
+        $('#carouselImage').fadeOut(function(){
+            $(this).attr('src', nextImage).fadeIn();
         });
     });
+    
+    $('#btn2').click(function(){
+        currentIndex = (currentIndex - 1 + imgLinks.length)% imgLinks.length
+        const prevImage = imgLinks[currentIndex];
+        $('#carouselImage').fadeOut(function(){
+            $(this).attr('src', prevImage).fadeIn();
 
-    $('#btn2').on('click', function() {
-        imgLinks.forEach(function() {
-            $(this).fadeOut(1000);
-        });
-    });
-});
-
+        })
+    })
+})
